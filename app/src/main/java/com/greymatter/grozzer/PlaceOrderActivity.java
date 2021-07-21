@@ -45,7 +45,6 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.location.SettingsClient;
-import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -53,6 +52,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.libraries.places.api.model.Place;
 import com.google.android.material.chip.Chip;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -73,6 +73,7 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
+import com.rtchagas.pingplacepicker.PingPlacePicker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -221,7 +222,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PaymentResu
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
+        /*if (resultCode == RESULT_OK) {
             switch (requestCode){
                 case PLACE_PICKER_REQUEST:
                     Place place = PlacePicker.getPlace(getApplicationContext(), data);
@@ -234,6 +235,18 @@ public class PlaceOrderActivity extends AppCompatActivity implements PaymentResu
                     setlocation.setText("Location selected");
 
             }
+        }*/
+        if ((requestCode == PLACE_PICKER_REQUEST) && (resultCode == RESULT_OK)) {
+            Place place = PingPlacePicker.getPlace(data);
+            if (place != null) {
+                latitude = place.getLatLng().latitude;
+                longitude = place.getLatLng().longitude;
+                String PlaceLatLng = String.valueOf(latitude)+" , "+String.valueOf(longitude);
+                //Toast.makeText(this, PlaceLatLng, Toast.LENGTH_SHORT).show();
+                locate = true;
+                setlocation.setText("Location selected");
+                //Toast.makeText(this, "You selected the place: " + place.getLatLng(), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -243,9 +256,25 @@ public class PlaceOrderActivity extends AppCompatActivity implements PaymentResu
 
         LatLngBounds bounds = new LatLngBounds(bottomLeft ,topRight);
 
+        PingPlacePicker.IntentBuilder builder = new PingPlacePicker.IntentBuilder();
+        builder.setAndroidApiKey(String.valueOf(R.string.Android_key))
+                .setMapsApiKey(String.valueOf(R.string.Map_API_key));
+
+        // If you want to set a initial location rather then the current device location.
+        // NOTE: enable_nearby_search MUST be true.
+        // builder.setLatLng(new LatLng(37.4219999, -122.0862462))
+
+        try {
+            builder.setLatLng(new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLatitude()));
+            startActivityForResult(builder.build(PlaceOrderActivity.this), PLACE_PICKER_REQUEST);
+        }
+        catch (Exception ex) {
+            // Google Play services is not available...
+        }
 
 
-        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+        /*PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
         try {
             builder.setLatLngBounds(bounds);
             startActivityForResult(builder.build(PlaceOrderActivity.this), PLACE_PICKER_REQUEST);
@@ -258,7 +287,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PaymentResu
             Log.d("Exception",e.getMessage());
 
             e.printStackTrace();
-        }
+        }*/
 
 
     }

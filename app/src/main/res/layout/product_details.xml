@@ -261,7 +261,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_semibold"
-            android:text="Add Cart"
+            android:text="Add Bag"
             android:layout_weight="1"
             android:textSize="18sp"
             android:layout_margin="5dp"

@@ -83,6 +83,14 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <Button
+            android:id="@+id/setlocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/out"
+            android:text="Set Location"/>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_margin="5dp"
             android:layout_width="match_parent"
@@ -98,19 +106,13 @@
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
-        <Button
-            android:id="@+id/setlocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/out"
-            android:text="Set Location"/>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_margin="5dp"
                 android:layout_width="0dp"
