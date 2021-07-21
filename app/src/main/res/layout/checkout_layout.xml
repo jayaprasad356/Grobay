@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".OrderDetailsActivity">
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_below="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shipping Details"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:fontFamily="@font/open_sans_semibold"
+            android:textColor="@color/design_default_color_on_secondary"/>
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            tools:text="Vijay \n 9751665327, \n 4a,Ezhil Nagar,Keeranur, \n 622502."/>
+
+        <TextView
+            android:id="@+id/method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            tools:text="Payment Method :- Cod"
+            android:fontFamily="@font/open_sans_semibold"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product Details"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:fontFamily="@font/open_sans_semibold"
+            android:textColor="@color/design_default_color_on_secondary"/>
+
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/open_sans_light"
+            android:gravity="center"
+            android:textColor="@color/primaryColor"
+            android:textSize="16sp"
+            android:padding="10dp"
+            tools:text="Order Total Rs:- 3000" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/l2"
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/cart_items" />
+
+</RelativeLayout>

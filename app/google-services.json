@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "926716172132",
+    "project_id": "grozzer-af2a1",
+    "storage_bucket": "grozzer-af2a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926716172132:android:001bab9ad44cfc90b78c71",
+        "android_client_info": {
+          "package_name": "com.greymatter.grozzer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "926716172132-qr6mdbot6i3hppj0ms3tseu9g4qrkh8l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC44yQAOsNEYgGNJmxWxYIGtPCcuEVaoJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "926716172132-qr6mdbot6i3hppj0ms3tseu9g4qrkh8l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

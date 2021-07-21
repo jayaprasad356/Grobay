@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="3dp"
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Media -->
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:id="@+id/pImage"
+                    android:layout_width="130dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/discountberry" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Title, secondary and supporting text -->
+                    <TextView
+                        android:id="@+id/productName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Strawberry"
+                        android:fontFamily="@font/open_sans_bold"
+                        />
+                    <TextView
+                        android:id="@+id/qty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="2 piece"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary"
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/offerContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/big_image">
+
+                        <TextView
+                            android:layout_marginEnd="5dp"
+                            android:id="@+id/tvMrp"
+                            android:layout_width="wrap_content"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical"
+                            tools:text="MRP: 100" />
+
+                        <TextView
+                            android:id="@+id/tvOffer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:background="@color/delivered"
+                            android:padding="8dp"
+                            android:textSize="10sp"
+                            tools:text="50% OFF"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/prodPrice"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Rs:- 50"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/black"
+                            />
+
+                        <Button
+                            android:tag="@string/close"
+                            android:id="@+id/addBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/cancelled"
+                            android:text="Add" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cartContainer"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    >
+                    <LinearLayout
+                        android:layout_marginStart="10dp"
+                        android:layout_centerVertical="true"
+                        tools:visibility="visible"
+                        android:weightSum="3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/minus"
+                            android:layout_gravity="center"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/bgdesign1"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_baseline_remove"
+                            />
+
+                        <TextView
+                            android:id="@+id/needed"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:textSize="18sp"
+                            android:text="1"
+                            android:textColor="@color/primaryColor" />
+
+                        <ImageView
+                            android:id="@+id/plus"
+                            android:layout_gravity="center"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_baseline_add"
+                            android:background="@drawable/bgdesign1"
+                            />
+
+
+
+                    </LinearLayout>
+                    <Button
+                        android:id="@+id/textButton"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:text="Add to Cart"
+                        android:textSize="12dp"
+                        android:layout_marginEnd="5dp"
+                        app:icon="@drawable/ic_baseline_shopping_cart_24"
+                        android:backgroundTint="@color/delivered"
+                        />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

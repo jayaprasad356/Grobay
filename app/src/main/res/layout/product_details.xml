@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/cartBtn1"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true">
+
+        <ImageView
+            android:id="@+id/cartBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:onClick="openCart"
+            android:src="@drawable/ic_baseline_shopping_cart_24" />
+
+        <TextView
+            android:id="@+id/cart_count"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/circle"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            tools:text="1"
+            tools:visibility="visible" />
+
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/back2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="goBack"
+        android:src="@drawable/ic_baseline_arrow_back_24" />
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Product Details"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/background_dark" />
+
+    <ScrollView
+        android:layout_above="@+id/textButton"
+        android:layout_below="@+id/back2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/l1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/big_image"
+                    android:layout_width="260dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/discountberry" />
+                <com.smarteist.autoimageslider.SliderView
+                    android:visibility="gone"
+                    android:id="@+id/slider"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    app:sliderAnimationDuration="600"
+                    app:sliderAutoCycleDirection="back_and_forth"
+                    app:sliderIndicatorAnimationDuration="600"
+                    app:sliderIndicatorEnabled="true"
+                    app:sliderIndicatorGravity="center_horizontal|bottom"
+                    app:sliderIndicatorMargin="15dp"
+                    app:sliderIndicatorOrientation="horizontal"
+                    app:sliderIndicatorPadding="3dp"
+                    app:sliderIndicatorRadius="1dp"
+                    app:sliderIndicatorSelectedColor="#5A5A5A"
+                    app:sliderIndicatorUnselectedColor="#FFF"
+                    app:sliderScrollTimeInSec="1" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/l2"
+                android:layout_marginTop="8dp"
+                android:layout_below="@+id/l1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/productName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    tools:text="Strawberry"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/prodDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="32dp"
+                    android:fontFamily="@font/open_sans_light"
+                    tools:text="Strawberry has water content and provides some fiber"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="32dp"
+                    android:fontFamily="@font/open_sans_light"
+                    tools:text="2 pieces"
+                    app:layout_constraintStart_toStartOf="@+id/prodPrice"
+                    app:layout_constraintTop_toBottomOf="@+id/prodDesc" />
+
+                <LinearLayout
+                    android:id="@+id/offerContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/big_image">
+
+                    <TextView
+                        android:id="@+id/tvMrp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        tools:text="Product MRP: Rs:-100" />
+
+                    <TextView
+                        android:id="@+id/tvOffer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:background="@color/delivered"
+                        android:padding="8dp"
+                        tools:text="50% OFF"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/prodPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_bold"
+                    tools:text="Rs:- 50"
+                    android:textSize="24sp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="32dp"
+                    app:layout_constraintStart_toStartOf="@+id/prodDesc" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:text="Related Products"
+                    android:textColor="@color/design_default_color_on_secondary"
+                    android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/discountedRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/discounted_row_items" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/l3"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                tools:visibility="visible"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="60dp"
+                android:layout_below="@id/l2"
+                android:weightSum="3"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/minus"
+                    android:layout_gravity="center"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bgdesign1"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_baseline_remove"
+                    />
+
+                <TextView
+                    android:id="@+id/needed"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="1"
+                    android:textColor="@color/primaryColor" />
+
+                <ImageView
+                    android:id="@+id/plus"
+                    android:layout_gravity="center"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_baseline_add"
+                    android:background="@drawable/bgdesign1"
+                    />
+
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/buttonlinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#192196F3"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/textButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_semibold"
+            android:text="Add Cart"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/orange_900"
+
+            />
+        <Button
+            android:id="@+id/button"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/open_sans_semibold"
+            android:text="Buy Now"
+            android:backgroundTint="@color/green_a700"
+            android:textColor="@color/design_default_color_on_primary"
+            android:textSize="18sp"
+            />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Profile">
+        <menu>
+            <item
+                android:id="@+id/orders"
+                android:icon="@drawable/ic_baseline_view_list_24"
+                android:title="My Orders" />
+            <item
+                android:id="@+id/address"
+                android:icon="@drawable/ic_baseline_edit_location_alt_24"
+                android:title="My Address" />
+        </menu>
+    </item>
+
+    <item android:title="General">
+        <menu>
+            <item
+                android:title="FeedBack"
+                android:id="@+id/feedback"
+                android:icon="@drawable/ic_baseline_feedback_24"/>
+            <item
+                android:title="Contact Us"
+                android:id="@+id/contact"
+                android:icon="@drawable/ic_baseline_call_24"/>
+            <item
+                android:title="About Us"
+                android:id="@+id/aboutus"
+                android:icon="@drawable/ic_baseline_info_24"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/exit"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
+        android:title="Logout" />
+
+</menu>
